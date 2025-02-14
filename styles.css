@@ -369,10 +369,7 @@ body {
     transition: color 0.3s;
 }
 @media (max-width: 768px) {
-    #producto, #contacto, #testimonios, #nosotros {
+    .navbar-toggler, #navbarNav {
         display: none !important;
-        visibility: hidden;
-        height: 0;
-        overflow: hidden;
     }
 }
