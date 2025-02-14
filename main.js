@@ -161,10 +161,14 @@ function comprarPorWhatsApp() {
     carrito = {};
     actualizarCarrito();
 
-    window.open(url, "_blank");
-
     // 🔹 Cerrar el carrito antes de redirigir
     toggleCarrito();
+
+    // 🔹 Redirigir al menú y abrir WhatsApp después de 1 segundo
+    setTimeout(() => {
+        window.location.href = "#";
+        window.open(url, "_blank");
+    }, 1000);
 }
 //Eliminar hamburguesa en móvil
 document.addEventListener("DOMContentLoaded", function () {
