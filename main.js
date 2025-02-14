@@ -28,9 +28,8 @@ function agregarAlCarrito(id, nombre, precio) {
         carrito[id] = { nombre, cantidad: 1, precio };
     }
     actualizarCarrito();
-    mostrarNotificacion(nombre, carrito[id].cantidad); // Nueva notificación detallada
+    mostrarNotificacion(nombre, carrito[id].cantidad);
 }
-
 
 function actualizarCarrito() {
     const listaCarrito = domElements.cartList;
@@ -47,14 +46,14 @@ function actualizarCarrito() {
 
             // Aplicar descuentos según la cantidad
             if (item.cantidad === 2) {
-                subtotal = 95000; // Precio fijo para 2 unidades
+                subtotal = 95000;
                 mensajeDescuento = 'Descuento por compra superior a una unidad';
             } else if (item.cantidad === 3) {
-                subtotal = 120000; // Precio fijo para 3 unidades
+                subtotal = 120000;
                 mensajeDescuento = 'Descuento por compra superior a una unidad';
             } else if (item.cantidad >= 4) {
-                subtotal = item.precio * item.cantidad; // Precio normal
-                mensajeDescuento = ''; // No hay descuento
+                subtotal = item.precio * item.cantidad;
+                mensajeDescuento = '';
             }
 
             total += subtotal;
@@ -88,7 +87,6 @@ function actualizarCarrito() {
     }
     if (btnVaciar) btnVaciar.style.display = cantidadTotal > 0 ? 'block' : 'none';
 
-    // Mostrar mensaje de descuento si aplica
     if (mensajeDescuento) {
         listaCarrito.innerHTML += `<strong><p class="text-danger text-center">${mensajeDescuento}</p></strong>`;
     }
@@ -124,7 +122,6 @@ function mostrarNotificacion(nombreProducto, cantidad) {
 
     notificacion.classList.add('mostrar');
 
-    // Ocultar después de 3 segundos
     setTimeout(() => {
         notificacion.classList.remove('mostrar');
     }, 3000);
@@ -133,7 +130,6 @@ function mostrarNotificacion(nombreProducto, cantidad) {
 function cerrarNotificacion() {
     document.getElementById('notificacion-carrito').classList.remove('mostrar');
 }
-
 
 function comprarPorWhatsApp() {
     if (Object.keys(carrito).length === 0) {
@@ -164,6 +160,8 @@ function comprarPorWhatsApp() {
 
     window.open(url, "_blank");
 }
+
+// Chatbot
 document.addEventListener("DOMContentLoaded", function () {
     const chatWidget = document.querySelector(".chat-widget");
     const chatBtn = document.querySelector(".chat-btn");
@@ -171,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.querySelector(".next-btn");
     const prevBtn = document.querySelector(".prev-btn");
     const pages = document.querySelectorAll(".faq-page");
-
     let currentPage = 0;
 
     chatBtn.addEventListener("click", function () {
@@ -180,9 +177,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeChat.addEventListener("click", function () {
         chatWidget.classList.remove("active");
+        resetChat();
     });
 
-    // Función para actualizar la página activa
     function updateFAQPage() {
         pages.forEach((page, index) => {
             page.classList.toggle("active", index === currentPage);
@@ -206,40 +203,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Mostrar respuesta al hacer clic en la pregunta
     document.querySelectorAll(".faq-question").forEach((question) => {
         question.addEventListener("click", function () {
             this.nextElementSibling.classList.toggle("visible");
         });
     });
 
-    updateFAQPage(); // Inicializa la primera página
-});
-
-function toggleChat() {
-    const chat = document.querySelector(".chat-widget");
-    const carrito = document.getElementById("menuCarrito");
-
-    // Si el carrito está activo, lo cerramos antes de abrir el chat
-    if (carrito.classList.contains("active")) {
-        carrito.classList.remove("active");
-        document.body.style.overflow = "";
+    function resetChat() {
+        currentPage = 0;
+        updateFAQPage();
+        document.querySelectorAll(".faq-answer").forEach(answer => {
+            answer.classList.remove("visible");
+        });
     }
 
-    chat.classList.toggle("active");
-}
-
-function closeChat() {
-    document.querySelector(".chat-widget").classList.remove("active");
-    resetChat();
-}
-
-function mostrarRespuesta(element) {
-    element.nextElementSibling.classList.toggle("visible");
-}
-
-function resetChat() {
-    document.querySelectorAll(".faq-answer").forEach(answer => {
-        answer.classList.remove("visible");
-    });
-}
+    updateFAQPage();
+});
