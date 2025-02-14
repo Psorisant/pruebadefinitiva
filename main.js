@@ -163,11 +163,11 @@ function comprarPorWhatsApp() {
 //Eliminar hamburguesa en móvil
 document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth <= 768) {
-        let navbar = document.querySelector(".navbar-collapse");
-        let navbarToggler = document.querySelector(".navbar-toggler");
+        let menu = document.getElementById("navbarNav"); // Menú desplegable
+        let menuToggler = document.querySelector(".navbar-toggler"); // Botón hamburguesa
 
-        if (navbar) navbar.remove(); // Elimina todo el menú
-        if (navbarToggler) navbarToggler.remove(); // Elimina el botón hamburguesa
+        if (menu) menu.remove(); // Elimina el menú
+        if (menuToggler) menuToggler.remove(); // Elimina el botón hamburguesa
     }
 });
 
