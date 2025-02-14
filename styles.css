@@ -368,3 +368,9 @@ body {
     text-decoration: none;
     transition: color 0.3s;
 }
+@media (max-width: 768px) {
+    #producto, #contacto, #testimonios, #nosotros {
+        display: none !important;
+    }
+}
+
