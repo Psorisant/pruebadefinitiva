@@ -109,6 +109,9 @@ function vaciarCarrito() {
     carrito = {};
     actualizarCarrito();
     mostrarNotificacion('Carrito vaciado');
+
+    // Cerrar el carrito antes de redirigir
+    toggleCarrito();
 }
 
 function mostrarNotificacion(nombreProducto, cantidad) {
@@ -158,7 +161,8 @@ function comprarPorWhatsApp() {
     carrito = {};
     actualizarCarrito();
 
-    window.open(url, "_blank");
+    // 🔹 Cerrar el carrito antes de redirigir
+    toggleCarrito();
 }
 //Eliminar hamburguesa en móvil
 document.addEventListener("DOMContentLoaded", function () {
