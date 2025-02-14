@@ -166,8 +166,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let navbar = document.querySelector(".navbar-collapse");
         let navbarToggler = document.querySelector(".navbar-toggler");
 
-        if (navbar) navbar.parentNode.removeChild(navbar); // Elimina todo el menú
-        if (navbarToggler) navbarToggler.parentNode.removeChild(navbarToggler); // Elimina el botón hamburguesa
+        if (navbar) navbar.remove(); // Elimina todo el menú
+        if (navbarToggler) navbarToggler.remove(); // Elimina el botón hamburguesa
     }
 });
 
