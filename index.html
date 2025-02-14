@@ -13,37 +13,39 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-leaf text-success"></i> PsoriSant
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#producto">Producto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonios">Testimonios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
-                    </li>
-                </ul>
-                <button class="btn cart-btn position-relative" onclick="toggleCarrito()">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador-carrito">
-                        0
-                    </span>
-                </button>
-            </div>
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-leaf text-success"></i> PsoriSant
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#producto">Producto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonios">Testimonios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+
+        <!-- 🛒 Botón del carrito (MOVER AQUÍ) -->
+        <button class="btn cart-btn position-relative" onclick="toggleCarrito()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador-carrito">
+                0
+            </span>
+        </button>
+    </div>
+</nav>
 
     <!-- Product Section -->
 <section id="acerca-de-nosotros" class="section">
