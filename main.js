@@ -161,10 +161,7 @@ function comprarPorWhatsApp() {
     carrito = {};
     actualizarCarrito();
 
-        // 🔹 Redirigir al inicio después de enviar el mensaje
-    setTimeout(() => {
-        window.open(url, "_blank"); // Abre WhatsApp en una nueva pestaña
-    }, 1000); // Espera 1 segundo para mostrar la notificación
+    window.open(url, "_blank");
 
     // 🔹 Cerrar el carrito antes de redirigir
     toggleCarrito();
